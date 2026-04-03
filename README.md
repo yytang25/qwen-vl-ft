@@ -2,8 +2,9 @@
 
 This repository provides a training framework for Qwen VL models. The are two steps to use our repo:
 
-1. Customize your dataset: downloading data, implement the config
+1. Customize your dataset:
 2. Modify training scripts: 
+3. Infer and Convert to Standard JSON Format:
 
 ## Repository Structure
 
