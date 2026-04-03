@@ -1,0 +1,118 @@
+[
+    {
+      "image_path": "unsplash_people_00010_67dcd75a09e4.jpg",
+      "criteria": {
+        "Color Harmony": {
+          "score": 7.0,
+          "reason": "The vibrant colors of the mural and the subjects' clothing create a lively and energetic mood, though the extreme colorfulness makes the image slightly busy."
+        },
+        "Visual Style Consistency": {
+          "score": 7.5,
+          "reason": "The overall aesthetic—bright, casual, vibrant, and sunny—is consistently maintained throughout the image, fitting the intended lifestyle mood."
+        },
+        "Sharpness": {
+          "score": 7.6,
+          "reason": "The overall image is clear, with key details like facial features, hair, and clothing of the main subjects well-defined and sharp."
+        },
+        "Light and Shadow Modeling": {
+          "score": 5.4,
+          "reason": "The hard directional sunlight creates harsh shadows under chins and noses, which is not particularly flattering for portraiture and lacks refined tonal transitions."
+        },
+        "Creativity and Originality": {
+          "score": 6.2,
+          "reason": "The image feels like a very conventional lifestyle stock photograph, lacking a unique perspective or original visual language."
+        },
+        "Exposure Control": {
+          "score": 6.3,
+          "reason": "Exposure is generally reasonable, but the bright, direct sunlight causes some harsh highlights on the skin and clothing, with deep shadows that slightly reduce tonal layering."
+        },
+        "Application of Classical Composition Principles": {
+          "score": 5.0,
+          "reason": "The composition is a standard group lineup, but the framing feels somewhat arbitrary, particularly on the right side where elements are poorly cropped."
+        },
+        "Depth of Field and Layering": {
+          "score": 5.2,
+          "reason": "There is minimal depth of field; the brightly colored, busy background is almost entirely in focus, which fails to provide good separation for the subjects."
+        },
+        "Visual Center Stability": {
+          "score": 5.1,
+          "reason": "While the interacting women in the center draw the eye, the highly distracting background and the confusing elements on the right edge weaken the stability of the visual center."
+        },
+        "Visual Flow Guidance": {
+          "score": 5.2,
+          "reason": "The viewer's eye naturally follows the smiles and the glasses, but the flow is interrupted by the cluttered background and the awkward framing on the right."
+        },
+        "Structural Support Stability": {
+          "score": 5.1,
+          "reason": "The group forms a loose horizontal arrangement that grounds the image moderately well, but the unresolved right edge makes the structure feel unbalanced."
+        },
+        "Appropriateness of Negative Space": {
+          "score": 4.2,
+          "reason": "The frame feels very crowded with multiple subjects and a highly complex background, lacking sufficient negative space to let the image breathe."
+        },
+        "Subject Integrity": {
+          "score": 4.0,
+          "reason": "The woman on the far right is heavily cropped and turned away, and there is a disembodied arm holding a glass entering the frame awkwardly, harming the integrity of the subjects."
+        }
+      },
+      "total_score": 53
+    },
+    {
+      "image_path": "unsplash_people_00021_0690acddd927.jpg",
+      "criteria": {
+        "Color Harmony": {
+          "score": 8.0,
+          "reason": "There is a striking and effective color contrast between the warm auburn hair and skin tones against the vibrant, cool cyan structural elements in the background, creating a visually engaging harmony."
+        },
+        "Visual Style Consistency": {
+          "score": 7.5,
+          "reason": "The image maintains a consistent modern, vibrant, and clean aesthetic. The bright colors, sharp details, and soft lighting all work together cohesively."
+        },
+        "Sharpness": {
+          "score": 7.8,
+          "reason": "The image is exceptionally sharp, particularly on the subject's eyes, facial features, and hair strands. Focus is highly accurate with no noticeable blur or softness."
+        },
+        "Light and Shadow Modeling": {
+          "score": 6.2,
+          "reason": "The lighting is soft and even, which is very flattering for the subject and provides gentle modeling of the facial features, though it lacks dramatic depth or strong directional shadows."
+        },
+        "Creativity and Originality": {
+          "score": 6.0,
+          "reason": "It is a beautifully executed and technically proficient portrait with a nice pop of color, but the pose and overall concept remain fairly conventional within the genre of portrait photography."
+        },
+        "Exposure Control": {
+          "score": 7.7,
+          "reason": "Exposure is very well handled. The skin tones are bright and natural, the white t-shirt retains detail without blowing out, and the shadows in the hair are adequately preserved."
+        },
+        "Application of Classical Composition Principles": {
+          "score": 6.4,
+          "reason": "The composition is relatively central but uses the geometric lines of the background to frame the subject nicely. The framing is effective for a close-up portrait."
+        },
+        "Depth of Field and Layering": {
+          "score": 6.8,
+          "reason": "While the depth of field isn't extremely shallow, the subject is clearly separated from the background through sharpness and bold color contrast, providing a decent sense of layering."
+        },
+        "Visual Center Stability": {
+          "score": 7.8,
+          "reason": "The subject's face is prominently placed and brightly lit, naturally acting as a strong and stable visual anchor. Her gaze adds direction without destabilizing the focus."
+        },
+        "Visual Flow Guidance": {
+          "score": 7.7,
+          "reason": "The vibrant blue lines initially catch the eye, but the sharp focus and lighting on the subject's face quickly draw attention back. Her gaze off-camera creates a natural visual extension."
+        },
+        "Structural Support Stability": {
+          "score": 7.8,
+          "reason": "The strong vertical and horizontal cyan lines in the background provide an excellent geometric scaffold that supports the subject and adds architectural stability to the frame."
+        },
+        "Appropriateness of Negative Space": {
+          "score": 6.8,
+          "reason": "The frame is quite full, leaving minimal negative space. However, the space to the right gives the subject's gaze some room to breathe, preventing the image from feeling overly claustrophobic."
+        },
+        "Subject Integrity": {
+          "score": 7.0,
+          "reason": "The crop is tight, slightly clipping the top of the hair and the shoulders, but it is acceptable for a bust-level portrait and keeps the emphasis squarely on the face."
+        }
+      },
+      "total_score": 71
+    }
+]

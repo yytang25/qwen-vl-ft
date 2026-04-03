@@ -1,0 +1,55 @@
+[
+  {
+    "image_path": "unsplash_people_00888_877bfef7968d.jpg",
+    "criteria": {
+      "Color Harmony": {
+        "level": "B"
+      },
+      "Visual Style Consistency": {
+        "level": "B"
+      },
+      "Sharpness": {
+        "level": "A"
+      },
+      "Light and Shadow Modeling": {
+        "level": "B"
+      },
+      "Creativity and Originality": {
+        "level": "B"
+      },
+      "Exposure Control": {
+        "level": "B"
+      },
+      "Application of Classical Composition Principles": {
+        "level": "B"
+      },
+      "Depth of Field and Layering": {
+        "level": "C"
+      },
+      "Visual Center Stability": {
+        "level": "A"
+      },
+      "Visual Flow Guidance": {
+        "level": "B"
+      },
+      "Structural Support Stability": {
+        "level": "B"
+      },
+      "Appropriateness of Negative Space": {
+        "level": "A"
+      },
+      "Subject Integrity": {
+        "level": "NOT_RES"
+      }
+    },
+    "total_score": 62,
+    "question": "Regarding the Subject Integrity in this image, which of the following best describes the visual evidence?",
+    "options": {
+      "A": "Although there is no single subject, the figures closest to the camera are clear and unobstructed, allowing the viewer to identify them as the main focus.",
+      "B": "A clearly isolated foreground subject draws immediate attention, despite minor background clutter distracting from its focus.",
+      "C": "The lack of a defined main subject is caused by severe blurring and the overlapping positioning of figures closest to the camera, making them appear cut off and indistinct.",
+      "D": "The image designates a strong subject by emphasizing a solitary figure in the center, with secondary elements surrounding it to enhance clarity."
+    },
+    "answer": "C"
+  }
+]
