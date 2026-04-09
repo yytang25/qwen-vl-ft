@@ -1,0 +1,30 @@
+pretrained_model_name_or_path: path/to/Qwen/Qwen-Image
+data_config:
+  train_batch_size: 1
+  num_workers: 4
+  img_size: 1024
+  caption_dropout_rate: 0.15
+  img_dir: ./demo/images/
+  json_path: ./demo/single_images_train.json
+  random_ratio: false
+  caption_type: txt
+report_to: null
+train_batch_size: 1
+output_dir: ./output_lora_qwen_image
+max_train_steps: 12000
+learning_rate: 1e-4
+lr_scheduler: cosine
+lr_warmup_steps: 500
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_weight_decay: 0.01
+adam_epsilon: 1e-8
+max_grad_norm: 1.0
+logging_dir: logs
+mixed_precision: "bf16"
+checkpointing_steps: 500
+checkpoints_total_limit: 10
+tracker_project_name: qwen_image_lora
+resume_from_checkpoint: latest
+gradient_accumulation_steps: 4
+rank: 64

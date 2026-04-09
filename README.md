@@ -1,55 +1,89 @@
-# QwenVL Training Framework
+# Qwen VL / Qwen-Image Fine-tuning
 
-This repository provides a training framework for Qwen VL models. The are two steps to use our repo:
+**Paper:** This repository is the **official implementation** of [PortraitCraft: A Benchmark for Portrait Composition Understanding and Generation](https://arxiv.org/abs/2604.03611) (arXiv:2604.03611).
 
-1. Customize your dataset:
-2. Modify training scripts: 
-3. Infer and Convert to Standard JSON Format:
+---
 
-## Repository Structure
+This repository supports **Portrait Composition and Generation** competition-style training. It covers two tracks: training data layouts and scripts for each are in the matching subdirectory.
+
+| Track | Task | Directory |
+|-------|------|-----------|
+| **Track 1: Portrait Composition Understanding** | Composition understanding and judgment (multimodal VL) | [`qwen-vl-finetune/`](qwen-vl-finetune/) |
+| **Track 2: Portrait Composition Generation** | Composition-oriented image generation | [`qwen-image-finetune/`](qwen-image-finetune/) |
+
+Use the subdirectory that matches your track for data prep, training, and evaluation.
+
+---
+
+## Data download
+
+The **PortraitCraft** dataset is published on Hugging Face. Download or `datasets.load_dataset` locally, then set paths in each track’s configs and conversion scripts.
+
+| Item | URL |
+|------|-----|
+| PortraitCraft dataset (train / eval for both tracks) | [https://huggingface.co/datasets/zijielou/PortraitCraft](https://huggingface.co/datasets/zijielou/PortraitCraft) |
+
+---
+
+## Pretrained models
+
+Released **PortraitCraft** checkpoints live on Hugging Face. After download, point `MODEL_PATH`, `model_name_or_path`, or YAML config fields to the local directory (pick the checkpoint variant that matches your track).
+
+| Use | URL |
+|-----|-----|
+| PortraitCraft pretrained weights (Track 1 & Track 2 as provided on the model card) | [https://huggingface.co/yytang225/PortraitCraft](https://huggingface.co/yytang225/PortraitCraft) |
+
+
+### Requirements
+
+You could use follow version of packages:
+```bash
+cd qwen-vl-ft/
+pip install -r requirements.txt
+```
+
+
+## Track 1: `qwen-vl-finetune` (Portrait Composition Understanding)
+
+Track 1 fine-tunes Qwen VL for composition-related understanding. The following documents the `qwenvl` layout and `qwen-vl-finetune` launch scripts.
+
+### Workflow
+
+1. Prepare and convert the dataset (see **Custom Dataset Configuration** below).
+2. Edit model path, data, and hyperparameters in the training scripts.
+3. Run inference after training and convert outputs to the required standard JSON submission format.
+
+### Repository structure (`qwenvl`)
 
 The `qwenvl` directory contains the following components:
 
-### `train/`
+#### `train/`
 - `trainer.py`: Main trainer updated from Huggingface Trainer
 - `train_qwen.py`: Main file for training
 - `argument.py`: Dataclasses for model, data and training arguments
 
-### `data/`
+#### `data/`
 - `__init__.py`: Contains datasets configs
 - `data_processor.py`: Data processing module for QwenVL models
 - `rope2d.py`: Provide RoPE implementation
 
-### `tools`
+#### `tools`
 - `process_bbox.ipynb`: Convert bbox into QwenVL format. If you have grounding data, please refer this file to tranform your data.
 - `pack_data.py`: Pack data into even length buckets.
 
-## Requirements
 
-You could use follow version of packages:
-
-- `torch==2.6.0`
-- `torchvision==0.21.0`
-- `transformers==4.57.0.dev0`
-- `deepspeed==0.17.1`
-- `flash_attn==2.7.4.post1`
-- `triton==3.2.0`
-- `accelerate==1.7.0`
-- `torchcodec==0.2`
-- `peft==0.17.1`
-
-## Custom Dataset Configuration
+### Custom Dataset Configuration
 
 The customized data should have the format like:
 
-### JSON Data Structure
+#### JSON Data Structure
 
 **Media Specification**:
 - `image`: Contains path to the media file (required)
 - Media tags in prompts:
     - `<image>` for image understanding tasks
 
-### Example Instances:
+#### Example Instances:
 
 1. **Single Image Example**:
 ```json
@@ -118,11 +152,11 @@ The customized data should have the format like:
 
 Some examples are shown in `demo/single_images.json` and these json files could be used for training.
 
-### Dataset config for training
+#### Dataset config for training
 
 To add or modify datasets for training, follow these steps:
 
-### Dataset Definition Structure
+##### Dataset Definition Structure
 
 1. **convert_ori_json_for_qwen3vl_train（This is just an example; you can customize the training content.）** in the format in the file `qwen-vl-finetune/convert_json_train.py`:
 ```python
@@ -148,13 +182,13 @@ data_dict = {
 }
 ```
 
-### Sampling Rate Control
+##### Sampling Rate Control
 
 You can optionally specify sampling rates by appending `%X` to the dataset name:
 - `"dataset_name%50"` will sample 50% of the data
 - `"dataset_name%20"` will sample 20% of the data
 
-### Usage Example
+##### Usage Example
 
 1. Define your dataset:
 ```python
@@ -175,7 +209,7 @@ dataset_names = ["my_dataset%50"]  # Will use 50% of your dataset
 configs = data_list(dataset_names)
 ```
 
-### Notes  
+##### Notes  
 - The `annotation_path` should point to a JSON or JSONL file containing your dataset annotations.  
 - The `data_path` can be left empty if the image paths in the annotations are absolute.  
 - Sampling rates are applied per-dataset when multiple datasets are specified.  
@@ -187,7 +221,7 @@ configs = data_list(dataset_names)
 - For open source data that might have missing images or other issues, you can verify data completeness using `tools/check_image.py`.  
 
 
-## Usage
+### Usage
 
 To train a model:
 
@@ -290,22 +324,65 @@ The script accepts arguments in three categories:
 
 
 
-training example:
-```python
-cd /qwen-vl-finetune
+**Training example:**
+
+```bash
+cd qwen-vl-finetune
 bash scripts/sft_qwen3_4b.sh
 ```
 
+**Evaluation example:**
 
-evaluation example:
-```python
-cd /qwen-vl-finetune
-python /evaluation/evaluation_multi.py 
+```bash
+cd qwen-vl-finetune
+python evaluation/evaluation_multi.py
 ```
 
+**Convert to the final required submission format:**
 
-Convert to the final required submission format.
-```python
-cd /qwen-vl-finetune
-convert_json_test.py
+```bash
+cd qwen-vl-finetune
+python convert_json_test.py
 ```
+
+---
+
+## Track 2: `qwen-image-finetune` (Portrait Composition Generation)
+
+Track 2 fine-tunes Qwen-Image for generation (e.g. LoRA or full fine-tuning). It is independent from Track 1; work under [`qwen-image-finetune/`](qwen-image-finetune/).
+
+### Workflow
+
+1. Prepare data and convert to the competition format (example below).
+2. Update paths and hyperparameters in `train_configs` and launch commands.
+3. Run evaluation after training and export results as required.
+
+### Examples
+
+1. **`convert_ori_json_for_qwen-image_train`** (example only; customize as needed):
+
+```bash
+cd qwen-image-finetune/
+python convert_json_train.py
+```
+
+2. **Train**:
+
+```bash
+cd qwen-image-finetune/
+CUDA_VISIBLE_DEVICES=7 accelerate launch train.py --config ./train_configs/train_lora.yaml
+```
+
+3. **Evaluation**:
+
+```bash
+cd qwen-image-finetune/
+python evaluation.py
+```
+
+---
+
+## Reference code
+
+- **Track 1:** [QwenLM/Qwen3-VL](https://github.com/QwenLM/Qwen3-VL)
+- **Track 2:** [FlyMyAI/flymyai-lora-trainer](https://github.com/FlyMyAI/flymyai-lora-trainer)
