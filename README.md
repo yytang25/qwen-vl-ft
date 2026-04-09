@@ -1,4 +1,4 @@
-# Qwen VL / Qwen-Image Fine-tuning
+# PortraitCraft: A Benchmark for Portrait Composition Understanding and Generation
 
 **Paper:** This repository is the **official implementation** of [PortraitCraft: A Benchmark for Portrait Composition Understanding and Generation](https://arxiv.org/abs/2604.03611) (arXiv:2604.03611).
 
@@ -6,10 +6,10 @@
 
 This repository supports **Portrait Composition and Generation** competition-style training. It covers two tracks: training data layouts and scripts for each are in the matching subdirectory.
 
-| Track | Task | Directory |
-|-------|------|-----------|
-| **Track 1: Portrait Composition Understanding** | Composition understanding and judgment (multimodal VL) | [`qwen-vl-finetune/`](qwen-vl-finetune/) |
-| **Track 2: Portrait Composition Generation** | Composition-oriented image generation | [`qwen-image-finetune/`](qwen-image-finetune/) |
+| Track | Directory |
+|-------|-----------|
+| **Track 1: Portrait Composition Understanding** | [`qwen-vl-finetune/`](qwen-vl-finetune/) |
+| **Track 2: Portrait Composition Generation** | [`qwen-image-finetune/`](qwen-image-finetune/) |
 
 Use the subdirectory that matches your track for data prep, training, and evaluation.
 
@@ -17,17 +17,17 @@ Use the subdirectory that matches your track for data prep, training, and evalua
 
 ## Data download
 
-The **PortraitCraft** dataset is published on Hugging Face. Download or `datasets.load_dataset` locally, then set paths in each track’s configs and conversion scripts.
+The **PortraitCraft** dataset is published on Hugging Face. Download, then set paths in each track’s configs and conversion scripts.
 
 | Item | URL |
 |------|-----|
-| PortraitCraft dataset (train / eval for both tracks) | [https://huggingface.co/datasets/zijielou/PortraitCraft](https://huggingface.co/datasets/zijielou/PortraitCraft) |
+| PortraitCraft dataset (train / test for both tracks) | [https://huggingface.co/datasets/zijielou/PortraitCraft](https://huggingface.co/datasets/zijielou/PortraitCraft) |
 
 ---
 
 ## Pretrained models
 
-Released **PortraitCraft** checkpoints live on Hugging Face. After download, point `MODEL_PATH`, `model_name_or_path`, or YAML config fields to the local directory (pick the checkpoint variant that matches your track).
+Released **PortraitCraft** base model checkpoints live on Hugging Face. After download, point `MODEL_PATH`, `model_name_or_path`, or YAML config fields to the local directory (pick the checkpoint variant that matches your track).
 
 | Use | URL |
 |-----|-----|
@@ -43,7 +43,7 @@ pip install -r requirements.txt
 ```
 
 
-## Track 1: `qwen-vl-finetune` (Portrait Composition Understanding)
+## Track 1: `Portrait Composition Understanding` (qwen-vl-finetune)
 
 Track 1 fine-tunes Qwen VL for composition-related understanding. The following documents the `qwenvl` layout and `qwen-vl-finetune` launch scripts.
 
@@ -347,9 +347,9 @@ python convert_json_test.py
 
 ---
 
-## Track 2: `qwen-image-finetune` (Portrait Composition Generation)
+## Track 2: `Portrait Composition Generation` (qwen-image-finetune)
 
-Track 2 fine-tunes Qwen-Image for generation (e.g. LoRA or full fine-tuning). It is independent from Track 1; work under [`qwen-image-finetune/`](qwen-image-finetune/).
+Track 2 fine-tunes Qwen-Image for generation (e.g. LoRA). It is independent from Track 1; work under [`qwen-image-finetune/`](qwen-image-finetune/).
 
 ### Workflow
 
