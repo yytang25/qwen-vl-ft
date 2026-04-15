@@ -35,7 +35,9 @@ Released **PortraitCraft** base model checkpoints live on Hugging Face. After do
 
 
 Reference for Base Model Training Duration:
+
 Track 1: Single L20x GPU — 0.5 epochs of training takes approximately 2 hours.
+
 Track 2: Four L20x GPUs — 12,000 training steps take approximately 14 hours.
 
 
