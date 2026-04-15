@@ -34,6 +34,11 @@ Released **PortraitCraft** base model checkpoints live on Hugging Face. After do
 | PortraitCraft pretrained weights (Track 1 & Track 2 as provided on the model card) | [https://huggingface.co/yytang225/PortraitCraft](https://huggingface.co/yytang225/PortraitCraft) |
 
 
+Reference for Base Model Training Duration:
+Track 1: Single L20x GPU — 0.5 epochs of training takes approximately 2 hours.
+Track 2: Four L20x GPUs — 12,000 training steps take approximately 14 hours.
+
+
 ### Requirements
 
 You could use follow version of packages:
